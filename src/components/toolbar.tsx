@@ -1,8 +1,14 @@
 import { ModeToggle } from "@/components/mode-toggles";
-import OnlineStatus from "@/components/online-status";
-import Playlist from "@/components/playlist";
 import Pomodoro from "@/components/pomodoro";
-import UserMenu from "@/components/user-menu";
+import dynamic from "next/dynamic";
+
+const OnlineStatus = dynamic(() => import("@/components/online-status"), {
+  ssr: false,
+});
+const Playlist = dynamic(() => import("@/components/playlist"), { ssr: false });
+const UserMenu = dynamic(() => import("@/components/user-menu"), {
+  ssr: false,
+});
 
 export default function Toolbar() {
   return (
